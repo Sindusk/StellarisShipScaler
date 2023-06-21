@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Runtime.Remoting.Metadata.W3cXsd2001;
 
 class Program
 {
@@ -18,7 +17,7 @@ class Program
     {
         string modDirectory = "C:\\Users\\sinis\\OneDrive\\Documents\\Paradox Interactive\\Stellaris\\mod\\";
         string common = "\\common\\";
-        string modName = "! Secrets of the Shroud - Real System Scale 6x Patch";
+        string modName = "! Ancient Empire - Real System Scale 6x Patch";
         string scaleType = "component_templates";
         //string scaleType = "ship_behaviors";
         string directory = modDirectory + modName + common + scaleType + "\\";
@@ -75,6 +74,7 @@ class Program
                             Console.WriteLine(key + ": Failed to parse value for variable - " + strVal);
                         }
                     }
+                    writer.WriteLine(input); // Ensure that variables are written properly when generating the file.
                     continue; // Skip it anyway, because it started with @ and we don't care about it.
                 }
                 if (reader.EndOfStream || (input.Contains("{") && // On a new component, or reached the end of file, attempt to write previous component
